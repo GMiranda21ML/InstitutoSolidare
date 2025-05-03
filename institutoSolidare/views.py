@@ -289,20 +289,14 @@ def informacoesPadrinho(request):
             ((hoje.month, hoje.day) < (nascimento.month, nascimento.day))
 
         resposta1 = int(request.POST.get("estilo_vida"))
-        resposta1_outro = request.POST.get("estilo_vida_outro", "").strip()
 
         resposta2 = int(request.POST.get("materia_preferida"))
-        resposta2_outro = request.POST.get(
-            "materia_preferida_outro", "").strip()
 
         resposta3 = int(request.POST.get("tempo_livre"))
-        resposta3_outro = request.POST.get("tempo_livre_outro", "").strip()
 
         resposta4 = int(request.POST.get("inspiracao"))
-        resposta4_outro = request.POST.get("inspiracao_outro", "").strip()
 
         resposta5 = int(request.POST.get("representa"))
-        resposta5_outro = request.POST.get("representa_outro", "").strip()
 
         # Cria o padrinho
         Padrinho.objects.create(
@@ -313,15 +307,10 @@ def informacoesPadrinho(request):
             idade=idade,
             telefone=cadastro_data["telefone"],
             estilo_vida=resposta1,
-            estilo_vida_outro=resposta1_outro if resposta1 == 99 else None,
             area_escolar=resposta2,
-            area_escolar_outro=resposta2_outro if resposta2 == 99 else None,
             tempo_livre=resposta3,
-            tempo_livre_outro=resposta3_outro if resposta3 == 99 else None,
             inspiracao=resposta4,
-            inspiracao_outro=resposta4_outro if resposta4 == 99 else None,
             valor_representa=resposta5,
-            valor_representa_outro=resposta5_outro if resposta5 == 99 else None,
         )
 
         request.session.pop("cadastro_user_data", None)
