@@ -326,12 +326,12 @@ def informacoesExtrasApadrinhado(request):
             info=apadrinhado_data["info"],
             foto=foto,
             foto_para_padrinho=foto_para_padrinho,
-            estilo_vida=int(request.POST.get("estilo_vida")),
-            area_escolar=int(request.POST.get("materia_preferida")),
-            tempo_livre=int(request.POST.get("tempo_livre")),
-            inspiracao=int(request.POST.get("inspiracao")),
-            valor_representa=int(request.POST.get("representa")),
-            palavras_chave=request.POST.get("palavras_chave"),
+
+            area_escolar = int(request.POST.get("area_escolar")),
+            profissao_desejada = int(request.POST.get("profissao_desejada")),
+            hobby = int(request.POST.get("hobby")),
+            inspiracoes = int(request.POST.get("inspiracoes")),
+            valores = int(request.POST.get("valores")),
         )
         request.session.pop("cadastro_apadrinhado_data", None)
 

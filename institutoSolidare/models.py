@@ -17,7 +17,7 @@ class Apadrinhados(models.Model):
     area_escolar = models.IntegerField(null=True, blank=True)
     profissao_desejada = models.IntegerField(null=True, blank=True)
     hobby = models.IntegerField(null=True, blank=True)
-    inspiracao = models.IntegerField(null=True, blank=True)
+    inspiracoes = models.IntegerField(null=True, blank=True)
     valores = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
