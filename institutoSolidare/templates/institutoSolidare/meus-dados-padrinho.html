@@ -1,0 +1,90 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+
+.photo-placeholder {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    align-self: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.afilhado-content div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+}
+
+.afilhado-content label {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.afilhado-content strong {
+    font-weight: 600;
+    font-size: 1rem;
+}
+</style>
+<main>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="{% url 'meusDadosPadrinho' %}" class="admin-btn">Meus dados</a>
+            <a href="{% url 'meusApadrinhados' %}" class="admin-btn">Meus apadrinhados</a>
+            <a class="admin-btn">Método de doação</a>
+            <a class="admin-btn">aaaaaaaaaaa</a>
+            <a class="admin-btn">aaaaaaaaaaaaa</a>
+            <a href="{% url 'novoApadrinhado' %}" class="admin-btn">Novo Afiliado</a>
+        </div> 
+
+        <!-- Conteúdo -->
+        <div class="afilhado-content">
+            <div class="photo-placeholder">
+                <img src="{{ padrinho.foto.url }}" alt="Foto de {{ padrinho.nome }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+            </div>
+            <div>
+                <label>Nome: <strong>{{ padrinho.user.first_name }}</strong></label>
+            </div>
+            <div>
+                <label>Endereço de email: <strong>{{ padrinho.user.email }}</strong></label>
+            </div>
+            <div>
+                <label>País: <strong>{{ padrinho.pais }}</strong></label>
+            </div>
+            <div>
+                <label>Estado <strong>{{ padrinho.estado }}</strong></label>
+            </div>
+            <div>
+                <label>Data de nascimento: <strong>{{ padrinho.data_nascimento }} ({{ padrinho.idade }} anos)</strong></label>
+            </div>
+            <div>
+                <label>Telefone: <strong>{{ padrinho.telefone }}</strong></label>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+  document.getElementById("searchInput").addEventListener("keyup", function() {
+    const filtro = this.value.toLowerCase();
+    const cards = document.querySelectorAll(".child-card-link");
+
+    cards.forEach(card => {
+      const nome = card.querySelector(".child-name").textContent.toLowerCase();  
+      if (nome.includes(filtro)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+
+{% endblock %}

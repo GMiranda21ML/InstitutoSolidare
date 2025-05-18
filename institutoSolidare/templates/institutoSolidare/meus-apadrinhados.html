@@ -5,16 +5,14 @@
 <main>
     <div class="dashboard-wrapper">
         <!-- Sidebar -->
-        {% comment %} <div class="sidebar">
-            <button class="admin-btn">Não implementado Meus dados</button>
-            <button class="admin-btn">Não implementado Cartas</button>
-            <button class="admin-btn">Não implementado</button>
-            <button class="admin-btn">Não implementado</button>
-            <button class="admin-btn">Não implementado</button>
-            <a href="{% url 'novoApadrinhado' %}">
-                <button class="submit-btn">(Não implementado)Novo Apadrinhamento</button>
-            </a>
-        </div> {% endcomment %}
+        <div class="sidebar">
+            <a href="{% url 'meusDadosPadrinho' %}" class="admin-btn">Meus dados</a>
+            <a href="{% url 'meusApadrinhados' %}" class="admin-btn">Meus apadrinhados</a>
+            <a class="admin-btn">Método de doação</a>
+            <a class="admin-btn">aaaaaaaaaaa</a>
+            <a class="admin-btn">aaaaaaaaaaaaa</a>
+            <a href="{% url 'novoApadrinhado' %}" class="admin-btn">Novo Afiliado</a>
+        </div> 
 
         <!-- Conteúdo -->
         <div class="afilhado-content">

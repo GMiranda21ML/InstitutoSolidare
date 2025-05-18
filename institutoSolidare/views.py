@@ -338,3 +338,12 @@ def informacoesExtrasApadrinhado(request):
         messages.success(request, "Informações salvas com sucesso!")
         return redirect("admMain")
     return render(request, "institutoSolidare/informacoes-extras-apadrinhado.html")
+
+def meusDadosPadrinho(request):
+    padrinho = Padrinho.objects.get(user=request.user)
+    apadrinhados = padrinho.apadrinhados.all()
+
+    context = {
+        "padrinho": padrinho
+    }
+    return render(request, "institutoSolidare/meus-dados-padrinho.html", context)

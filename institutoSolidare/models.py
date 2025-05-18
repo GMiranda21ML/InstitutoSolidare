@@ -30,6 +30,7 @@ class Padrinho(models.Model):
     pais = models.CharField(max_length=100)
     estado = models.CharField(max_length=100)
     telefone = models.CharField(max_length=20)
+    foto = models.ImageField(upload_to="fotos/")
 
     area_escolar = models.IntegerField(null=True, blank=True)
 

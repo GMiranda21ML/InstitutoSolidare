@@ -1,7 +1,7 @@
 from django.urls import path
 from institutoSolidare.views import index, admLogin, admMain, gerenciarApadrinhados, cadastrarApadrinhados, \
     cadastroStatus, cadastroPadrinhos, informacoesPadrinho, informacoesApadrinhados, loginPadrinho, meusApadrinhados, novoApadrinhado, \
-    infoMeuApadrinhado, escolherApadrinhado, informacoesExtrasApadrinhado
+    infoMeuApadrinhado, escolherApadrinhado, informacoesExtrasApadrinhado, meusDadosPadrinho
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -25,5 +25,6 @@ urlpatterns = [
     path("novo-apadrinhado", novoApadrinhado, name="novoApadrinhado"),
     path("informacao-meu-apadrinhado/<int:id>/",
          infoMeuApadrinhado, name="infoMeuApadrinhado"),
-    path("escolher-apadrinhado", escolherApadrinhado, name="escolherApadrinhado")
+    path("escolher-apadrinhado", escolherApadrinhado, name="escolherApadrinhado"),
+    path("meus-dados-padrinho", meusDadosPadrinho, name="meusDadosPadrinho"),
 ]
