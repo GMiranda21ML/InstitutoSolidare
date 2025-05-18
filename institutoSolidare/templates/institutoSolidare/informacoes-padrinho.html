@@ -18,66 +18,99 @@
             <div class="register-grid">
                 <!-- primeira combo box -->
                 <div class="input-group">
-                    <label>Como você se descreve no seu dia a dia?</label>
+                    <label>1. Na escola, qual área te chamava mais atenção?</label>
                     <div class="combo-container">
-                      <select name="estilo_vida" class="register-input combo-select" onchange="toggleOtherInput(this)" required>
-                        <option value="1">Gosto de conversar, contar histórias e estar perto de gente</option>
-                        <option value="2">Sou mais tranquilo(a), prefiro ouvir e observar</option>
-                        <option value="3">Penso bastante antes de agir, gosto de entender bem as coisas</option>
-                        <option value="4">Tenho uma mente cheia de sonhos e ideias</option>
-                        <option value="5">Me preocupo muito com os outros e gosto de ajudar sempre que posso</option>
+                      <select name="area_escolar" class="register-input combo-select" onchange="toggleOtherInput(this)" required>
+                        <option value="1">Linguagens</option>
+                        <option value="2">Matemática</option>
+                        <option value="3">Ciências da Natureza</option>
+                        <option value="4">Ciências Humanas</option>
+                        <option value="5">Artes</option>
                       </select>
                     </div>
                   </div>
                 <!-- segunda combo box -->
                 <div class="input-group">
-                    <label>Na escola, qual área mais te chamava atenção?</label>
+                    <label>2. Qual era a profissão dos seus sonhos, quando criança?</label>
                     <div class="combo-container">
-                        <select name="materia_preferida" class="register-input combo-select" onchange="toggleOtherInput(this)">
-                            <option value="1">Números, cálculos e raciocínio lógico</option>
-                            <option value="2">A natureza, os experimentos e o funcionamento das coisas</option>
-                            <option value="3">Escrever, ler, se comunicar</option>
-                            <option value="4">Aprender sobre o mundo, lugares, pessoas e suas histórias</option>
-                            <option value="5">Criar com arte, desenhar, tocar instrumentos, inventar coisas</option>
+                        <select name="profissao_desejada_quando_crianca" class="register-input combo-select" onchange="toggleOtherInput(this)">
+                            <option value="1">Médico(a)</option>
+                            <option value="2">Professor(a)</option>
+                            <option value="3">Bombeiro(a)</option>
+                            <option value="4">Atleta ou Jogador(a) de futebol</option>
+                            <option value="5">Artista</option>
+                            <option value="6">Ator</option>
+                            <option value="7">Engenheiro(a) </option>
+                            <option value="8">Arquiteto(a)</option>
+                            <option value="9">Veterinário(a)</option>
+                            <option value="10">Empresário(a)</option>
+                            <option value="11">Juiz</option>
                         </select>
                     </div>
                 </div>
                 <!-- terceira combo box -->
                 <div class="input-group">
-                    <label>E no tempo livre, o que te dá mais prazer fazer?</label>
+                    <label>3. E hoje, em qual área profissional você atua?</label>
                     <div class="combo-container">
-                        <select name="tempo_livre" class="register-input combo-select" onchange="toggleOtherInput(this)">
-                            <option value="1">Praticar esportes, caminhar, me movimentar</option>
-                            <option value="2">Assistir algo, ler ou buscar aprender novas coisas</option>
-                            <option value="3">Fazer algo com as mãos, desenhar, pintar, montar</option>
-                            <option value="4">Jogar, seja no videogame, celular ou em jogos de tabuleiro</option>
-                            <option value="5">Cuidar da casa, das plantas, dos bichinhos ou das pessoas próximas</option>
+                        <select name="profissao_atual" class="register-input combo-select" onchange="toggleOtherInput(this)">
+                            <option value="1">Saúde</option>
+                            <option value="2">Educação</option>
+                            <option value="3">Legislativa</option>
+                            <option value="4">Tecnologia</option>
+                            <option value="5">Negócios</option>
+                            <option value="6">Engenharia</option>
+                            <option value="7">Artes e Cultura</option>
+                            <option value="8">Comunicação e Marketing</option>
+                            <option value="9">Esportes/Atividades físicas</option>
+                            <option value="10">Serviço público</option>
                         </select>
                     </div>
                 </div>
                 <!-- quarta combo box -->
                 <div class="input-group">
-                    <label>Qual dessas coisas mais te inspira hoje?</label>
+                    <label>4. Você possui algum hobby?</label>
                     <div class="combo-container">
-                        <select name="inspiracao" class="register-input combo-select" onchange="toggleOtherInput(this)">
-                            <option value="1">Ajudar alguém e causar um impacto positivo na vida dela</option>
-                            <option value="2">Conhecer novas culturas, lugares e formas de ver o mundo</option>
-                            <option value="3">Ter uma vida tranquila e próxima de quem eu amo</option>
-                            <option value="4">Trabalhar com o que eu gosto e me sentir valorizado(a)</option>
-                            <option value="5">Aprender constantemente e crescer como pessoa</option>
+                        <select name="hobby" class="register-input combo-select" onchange="toggleOtherInput(this)">
+                            <option value="1">Ler</option>
+                            <option value="2">Cozinhar</option>
+                            <option value="3">Praticar esportes</option>
+                            <option value="4">Tocar instrumentos musicais</option>
+                            <option value="5">Desenhar ou pintar</option>
+                            <option value="6">Escrever</option>
+                            <option value="7">Dançar</option>
                         </select>
                     </div>
                 </div>
                 <!-- quinta combo box -->
                 <div class="input-group">
-                    <label>E pra fechar, qual desses valores mais representa você?</label>
+                    <label>5. O que mais te inspira hoje?</label>
                     <div class="combo-container">
-                        <select name="representa" class="register-input combo-select" onchange="toggleOtherInput(this)">
-                            <option value="1">Empatia – me importo e tento entender o outro</option>
-                            <option value="2">Coragem – encaro desafios mesmo com medo</option>
-                            <option value="3">Paciência – sei respeitar o tempo das coisas</option>
-                            <option value="4">Dedicação – me entrego de verdade no que faço</option>
-                            <option value="5">Alegria – tento sempre espalhar boas energias por onde passo</option>
+                        <select name="inspiracoes" class="register-input combo-select" onchange="toggleOtherInput(this)">
+                            <option value="1">Família</option>
+                            <option value="2">Meus amigos</option>
+                            <option value="3">Impactar positivamente a vida de outras pessoas</option>
+                            <option value="4">Buscar conhecimento e crescimento</option>
+                            <option value="5">Realizar sonhos de infância</option>
+                            <option value="6">Fé ou espiritualidade</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>6. E para fechar, aponte seus 3 maiores valores</label>
+                    <div class="combo-container">
+                        <select name="valores" class="register-input combo-select" onchange="toggleOtherInput(this)">
+                            <option value="1">Honestidade</option>
+                            <option value="2">Liberdade</option>
+                            <option value="3">Respeito</option>
+                            <option value="4">Amor</option>
+                            <option value="5">Coragem</option>
+                            <option value="6">Justiça</option>
+                            <option value="7">Empatia</option>
+                            <option value="8">Responsabilidade</option>
+                            <option value="9">Gratidão</option>
+                            <option value="10">Fé</option>
+                            <option value="11">Determinação</option>
+                            <option value="12">Lealdade</option>
                         </select>
                     </div>
                 </div>

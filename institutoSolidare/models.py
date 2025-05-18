@@ -14,14 +14,11 @@ class Apadrinhados(models.Model):
 
     padrinhos = models.ManyToManyField('Padrinho', related_name='apadrinhados', blank=True)
 
-    estilo_vida = models.IntegerField(null=True, blank=True)
     area_escolar = models.IntegerField(null=True, blank=True)
-    tempo_livre = models.IntegerField(null=True, blank=True)
+    profissao_desejada = models.IntegerField(null=True, blank=True)
+    hobby = models.IntegerField(null=True, blank=True)
     inspiracao = models.IntegerField(null=True, blank=True)
-    valor_representa = models.IntegerField(null=True, blank=True)
-    extra = models.IntegerField(null=True, blank=True)
-    
-    palavras_chave = models.TextField(null=True, blank=True)
+    valores = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -34,17 +31,17 @@ class Padrinho(models.Model):
     estado = models.CharField(max_length=100)
     telefone = models.CharField(max_length=20)
 
-    estilo_vida = models.IntegerField(null=True, blank=True)
-
     area_escolar = models.IntegerField(null=True, blank=True)
 
-    tempo_livre = models.IntegerField(null=True, blank=True)
+    profissao_desejada_quando_crianca = models.IntegerField(null=True, blank=True)
 
-    inspiracao = models.IntegerField(null=True, blank=True)
+    profissao_atual = models.IntegerField(null=True, blank=True)
 
-    valor_representa = models.IntegerField(null=True, blank=True)
+    hobby = models.IntegerField(null=True, blank=True)
 
-    extra = models.IntegerField(null=True, blank=True)
+    inspiracoes = models.IntegerField(null=True, blank=True)
+
+    valores = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.user.get_full_name()

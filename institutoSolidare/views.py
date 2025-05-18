@@ -288,16 +288,6 @@ def informacoesPadrinho(request):
         idade = hoje.year - nascimento.year - \
             ((hoje.month, hoje.day) < (nascimento.month, nascimento.day))
 
-        resposta1 = int(request.POST.get("estilo_vida"))
-
-        resposta2 = int(request.POST.get("materia_preferida"))
-
-        resposta3 = int(request.POST.get("tempo_livre"))
-
-        resposta4 = int(request.POST.get("inspiracao"))
-
-        resposta5 = int(request.POST.get("representa"))
-
         # Cria o padrinho
         Padrinho.objects.create(
             user=user,
@@ -306,11 +296,13 @@ def informacoesPadrinho(request):
             data_nascimento=nascimento,
             idade=idade,
             telefone=cadastro_data["telefone"],
-            estilo_vida=resposta1,
-            area_escolar=resposta2,
-            tempo_livre=resposta3,
-            inspiracao=resposta4,
-            valor_representa=resposta5,
+
+            area_escolar = int(request.POST.get("area_escolar")),
+            profissao_desejada_quando_crianca = int(request.POST.get("profissao_desejada_quando_crianca")),
+            profissao_atual = int(request.POST.get("profissao_atual")),
+            hobby = int(request.POST.get("hobby")),
+            inspiracoes = int(request.POST.get("inspiracoes")),
+            valores = int(request.POST.get("valores")),
         )
 
         request.session.pop("cadastro_user_data", None)
