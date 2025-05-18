@@ -13,10 +13,14 @@
                 <p style="color: green;">{{ message }}</p>
             {% endfor %}
         {% endif %} {% endcomment %}
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="register-grid">
                 <!-- primeira combo box -->
+                <div class="input-group">
+                    <label>Foto</label>
+                    <input type="file" name="foto" class="register-input file-input" accept="image/*">
+                </div>
                 <div class="input-group">
                     <label>1. Na escola, qual área te chamava mais atenção?</label>
                     <div class="combo-container">

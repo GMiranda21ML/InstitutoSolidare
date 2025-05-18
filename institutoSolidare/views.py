@@ -80,6 +80,31 @@ def cadastrarApadrinhados(request):
 
     return render(request, "institutoSolidare/cadastro-apadrinhados.html")
 
+def informacoesExtrasApadrinhado(request):
+    if request.method == "POST":
+        apadrinhado_data = request.session.get("cadastro_apadrinhado_data")
+        foto = request.FILES.get("foto")
+        foto_para_padrinho = request.FILES.get("foto_para_padrinho")
+        Apadrinhados.objects.create(
+            nome=apadrinhado_data["nome"],
+            idade=apadrinhado_data["idade"],
+            data_nascimento=apadrinhado_data["data_nascimento"],
+            genero=apadrinhado_data["genero"],
+            info=apadrinhado_data["info"],
+            foto=foto,
+            foto_para_padrinho=foto_para_padrinho,
+
+            area_escolar = int(request.POST.get("area_escolar")),
+            profissao_desejada = int(request.POST.get("profissao_desejada")),
+            hobby = int(request.POST.get("hobby")),
+            inspiracoes = int(request.POST.get("inspiracoes")),
+            valores = int(request.POST.get("valores")),
+        )
+        request.session.pop("cadastro_apadrinhado_data", None)
+
+        messages.success(request, "Informações salvas com sucesso!")
+        return redirect("admMain")
+    return render(request, "institutoSolidare/informacoes-extras-apadrinhado.html")
 
 def cadastroStatus(request):
     return render(request, "institutoSolidare/cadastro-status.html")
@@ -282,6 +307,8 @@ def informacoesPadrinho(request):
 
         login(request, user)
 
+        foto = request.FILES.get("foto")
+
         nascimento = datetime.strptime(
             cadastro_data["data_nascimento"], "%Y-%m-%d").date()
         hoje = date.today()
@@ -296,6 +323,7 @@ def informacoesPadrinho(request):
             data_nascimento=nascimento,
             idade=idade,
             telefone=cadastro_data["telefone"],
+            foto=foto,
 
             area_escolar = int(request.POST.get("area_escolar")),
             profissao_desejada_quando_crianca = int(request.POST.get("profissao_desejada_quando_crianca")),
@@ -311,33 +339,6 @@ def informacoesPadrinho(request):
         return redirect("escolherApadrinhado")
 
     return render(request, "institutoSolidare/informacoes-padrinho.html")
-
-
-def informacoesExtrasApadrinhado(request):
-    if request.method == "POST":
-        apadrinhado_data = request.session.get("cadastro_apadrinhado_data")
-        foto = request.FILES.get("foto")
-        foto_para_padrinho = request.FILES.get("foto_para_padrinho")
-        Apadrinhados.objects.create(
-            nome=apadrinhado_data["nome"],
-            idade=apadrinhado_data["idade"],
-            data_nascimento=apadrinhado_data["data_nascimento"],
-            genero=apadrinhado_data["genero"],
-            info=apadrinhado_data["info"],
-            foto=foto,
-            foto_para_padrinho=foto_para_padrinho,
-
-            area_escolar = int(request.POST.get("area_escolar")),
-            profissao_desejada = int(request.POST.get("profissao_desejada")),
-            hobby = int(request.POST.get("hobby")),
-            inspiracoes = int(request.POST.get("inspiracoes")),
-            valores = int(request.POST.get("valores")),
-        )
-        request.session.pop("cadastro_apadrinhado_data", None)
-
-        messages.success(request, "Informações salvas com sucesso!")
-        return redirect("admMain")
-    return render(request, "institutoSolidare/informacoes-extras-apadrinhado.html")
 
 def meusDadosPadrinho(request):
     padrinho = Padrinho.objects.get(user=request.user)
