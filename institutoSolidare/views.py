@@ -8,6 +8,8 @@ from datetime import datetime, date
 
 # Create your views here.
 
+def home(request):
+    return render(request, "institutoSolidare/home.html")
 
 def index(request):
     return render(request, "institutoSolidare/index.html")
